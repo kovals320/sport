@@ -73,7 +73,7 @@
 
             <!-- ימי השבוע -->
             <div class="grid grid-cols-7 text-center text-xs font-semibold text-slate-400 py-1">
-                <div>א'</div><div>ב'</div><div>ג'</div><div>ד'</div><div>ה'</div><div>ו'</div><div>ש'</div>
+                <div>א'</div><div>ב'</div><div>ג'</div><div>ה'</div><div>ו'</div><div>ש'</div>
             </div>
 
             <!-- גריד הימים -->
@@ -100,7 +100,7 @@
 
     </div>
 
-    <!-- Modal הזמנה חדשה -->
+    <!-- Modal הזמנה (יצירה / עריכה) -->
     <div id="booking-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5 relative animate-in fade-in zoom-in-95 duration-150">
             
@@ -112,6 +112,8 @@
 
             <form onsubmit="submitBooking(event)" class="space-y-4">
                 
+                <input type="hidden" id="editing-booking-id" value="">
+
                 <!-- בחירת סוג מגרש -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-2">סוג מגרש</label>
@@ -161,7 +163,7 @@
                     <input type="checkbox" id="booking-enable-reg" class="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500">
                 </div>
 
-                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-amber-500/20 transition-all text-base">
+                <button type="submit" id="modal-submit-btn" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-amber-500/20 transition-all text-base">
                     אישור הזמנה
                 </button>
             </form>
@@ -245,12 +247,10 @@
             const grid = document.getElementById('calendar-days-grid');
             grid.innerHTML = '';
 
-            // ריק לפני תחילת החודש
             for (let i = 0; i < firstDayOfMonth; i++) {
                 grid.innerHTML += `<div></div>`;
             }
 
-            // ימי החודש
             for (let day = 1; day <= daysInMonth; day++) {
                 const monthStr = String(month + 1).padStart(2, '0');
                 const dayStr = String(day).padStart(2, '0');
@@ -302,7 +302,6 @@
             listEl.innerHTML = dayBookings.map(b => {
                 const parts = allParticipants.filter(p => p.booking_id === b.id);
                 
-                // חישוב שעת סיום
                 const [h, m] = b.start_time.split(':').map(Number);
                 const endD = new Date(2000, 0, 1, h, m + b.duration_minutes);
                 const endTimeStr = `${String(endD.getHours()).padStart(2,'0')}:${String(endD.getMinutes()).padStart(2,'0')}`;
@@ -318,32 +317,39 @@
                             </span>
                         </div>
 
-                        ${b.enable_registration ? `
-                            <div class="flex items-center gap-2 pt-1">
-                                <button onclick="addParticipantPrompt(${b.id})" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-sm">
-                                    הרשמה
-                                </button>
-                                <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-xl">
-                                    🎟️ כולל הרשמה ${parts.length}/${b.max_participants || 6}
-                                </span>
+                        <div class="flex items-center justify-between pt-1">
+                            <div>
+                                ${b.enable_registration ? `
+                                    <div class="flex items-center gap-2">
+                                        <button onclick="addParticipantPrompt(${b.id})" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-sm">
+                                            הרשמה
+                                        </button>
+                                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-xl">
+                                            🎟️ כולל הרשמה ${parts.length}/${b.max_participants || 6}
+                                        </span>
+                                    </div>
+                                ` : ''}
                             </div>
 
-                            ${parts.length > 0 ? `
-                                <div class="flex flex-wrap gap-1.5 pt-1">
-                                    ${parts.map(p => `
-                                        <span class="bg-white border border-slate-200 text-slate-600 text-xs px-2.5 py-0.5 rounded-lg">
-                                            ${p.participant_name}
-                                        </span>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-                        ` : ''}
-
-                        <div class="flex items-center justify-end gap-2 pt-1 text-slate-300">
-                            <button onclick="deleteBooking(${b.id})" class="hover:text-red-500 p-1">
-                                <i data-lucide="trash-2" class="w-4 h-4"></i>
-                            </button>
+                            <div class="flex items-center gap-1.5 text-slate-400">
+                                <button onclick="editBooking(${b.id})" class="p-1.5 hover:bg-slate-200/60 rounded-xl transition-colors text-slate-500" title="ערוך הזמנה">
+                                    <i data-lucide="pencil" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="deleteBooking(${b.id})" class="p-1.5 hover:bg-red-100 rounded-xl transition-colors text-red-500" title="מחק הזמנה">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
                         </div>
+
+                        ${b.enable_registration && parts.length > 0 ? `
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                ${parts.map(p => `
+                                    <span class="bg-white border border-slate-200 text-slate-600 text-xs px-2.5 py-0.5 rounded-lg">
+                                        ${p.participant_name}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        ` : ''}
                     </div>
                 `;
             }).join('');
@@ -366,8 +372,35 @@
         }
 
         function openBookingModal() {
+            document.getElementById('editing-booking-id').value = '';
+            document.getElementById('booking-booker-name').value = '';
+            document.getElementById('booking-enable-reg').checked = false;
+            document.getElementById('booking-start-time').selectedIndex = 0;
+            document.getElementById('booking-duration').value = '60';
+            selectCourt('tennis');
+
+            document.getElementById('modal-submit-btn').textContent = 'אישור הזמנה';
+
             const d = new Date(selectedDateStr + 'T00:00:00');
             document.getElementById('modal-date-title').textContent = `הזמנת מגרש — יום ${dayNames[d.getDay()]}, ${d.getDate()} ב${monthNames[d.getMonth()]}`;
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+
+        function editBooking(id) {
+            const b = allBookings.find(item => item.id === id);
+            if (!b) return;
+
+            document.getElementById('editing-booking-id').value = b.id;
+            document.getElementById('booking-booker-name').value = b.booker_name;
+            document.getElementById('booking-start-time').value = b.start_time;
+            document.getElementById('booking-duration').value = b.duration_minutes.toString();
+            document.getElementById('booking-enable-reg').checked = b.enable_registration;
+            selectCourt(b.court_type);
+
+            document.getElementById('modal-submit-btn').textContent = 'עדכון הזמנה';
+
+            const d = new Date(selectedDateStr + 'T00:00:00');
+            document.getElementById('modal-date-title').textContent = `עריכת הזמנה — יום ${dayNames[d.getDay()]}, ${d.getDate()} ב${monthNames[d.getMonth()]}`;
             document.getElementById('booking-modal').classList.remove('hidden');
         }
 
@@ -377,6 +410,7 @@
 
         async function submitBooking(e) {
             e.preventDefault();
+            const bookingId = document.getElementById('editing-booking-id').value;
             const startTime = document.getElementById('booking-start-time').value;
             const duration = parseInt(document.getElementById('booking-duration').value);
             const bookerName = document.getElementById('booking-booker-name').value.trim();
@@ -384,7 +418,7 @@
 
             if (!bookerName) return;
 
-            const newBooking = {
+            const bookingData = {
                 date: selectedDateStr,
                 court_type: selectedCourtType,
                 start_time: startTime,
@@ -396,12 +430,23 @@
             closeBookingModal();
 
             try {
-                const res = await fetch(`${SUPABASE_BASE_URL}/court_bookings`, {
-                    method: 'POST',
-                    headers: apiHeaders,
-                    body: JSON.stringify(newBooking)
-                });
-                if (res.ok) fetchBookings();
+                if (bookingId) {
+                    // עדכון הזמנה קיימת
+                    const res = await fetch(`${SUPABASE_BASE_URL}/court_bookings?id=eq.${bookingId}`, {
+                        method: 'PATCH',
+                        headers: apiHeaders,
+                        body: JSON.stringify(bookingData)
+                    });
+                    if (res.ok) fetchBookings();
+                } else {
+                    // יצירת הזמנה חדשה
+                    const res = await fetch(`${SUPABASE_BASE_URL}/court_bookings`, {
+                        method: 'POST',
+                        headers: apiHeaders,
+                        body: JSON.stringify(bookingData)
+                    });
+                    if (res.ok) fetchBookings();
+                }
             } catch (err) {}
         }
 
