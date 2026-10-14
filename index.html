@@ -192,6 +192,10 @@
         const SUPABASE_BASE_URL = 'https://pjujibzoscawmstarerz.supabase.co/rest/v1';
         const SUPABASE_KEY = 'sb_publishable_5mK3Md5VCpXjHTSgVv68GQ_8kmPbg83';
 
+        // שמות הטבלאות ב-Supabase
+        const TABLE_BOOKINGS = 'sport_court_bookings';
+        const TABLE_PARTICIPANTS = 'sport_booking_participants';
+
         const apiHeaders = {
             'apikey': SUPABASE_KEY,
             'Authorization': `Bearer ${SUPABASE_KEY}`,
@@ -239,10 +243,10 @@
 
         async function fetchBookings() {
             try {
-                const resB = await fetch(`${SUPABASE_BASE_URL}/court_bookings?select=*`, { headers: apiHeaders });
+                const resB = await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?select=*`, { headers: apiHeaders });
                 if (resB.ok) allBookings = await resB.json();
 
-                const resP = await fetch(`${SUPABASE_BASE_URL}/booking_participants?select=*`, { headers: apiHeaders });
+                const resP = await fetch(`${SUPABASE_BASE_URL}/${TABLE_PARTICIPANTS}?select=*`, { headers: apiHeaders });
                 if (resP.ok) allParticipants = await resP.json();
             } catch (e) {}
 
@@ -463,14 +467,14 @@
 
             try {
                 if (bookingId) {
-                    const res = await fetch(`${SUPABASE_BASE_URL}/court_bookings?id=eq.${bookingId}`, {
+                    const res = await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?id=eq.${bookingId}`, {
                         method: 'PATCH',
                         headers: apiHeaders,
                         body: JSON.stringify(bookingData)
                     });
                     if (res.ok) fetchBookings();
                 } else {
-                    const res = await fetch(`${SUPABASE_BASE_URL}/court_bookings`, {
+                    const res = await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}`, {
                         method: 'POST',
                         headers: apiHeaders,
                         body: JSON.stringify(bookingData)
@@ -490,7 +494,7 @@
             if (!name || !name.trim()) return;
 
             try {
-                const res = await fetch(`${SUPABASE_BASE_URL}/booking_participants`, {
+                const res = await fetch(`${SUPABASE_BASE_URL}/${TABLE_PARTICIPANTS}`, {
                     method: 'POST',
                     headers: apiHeaders,
                     body: JSON.stringify({ booking_id: bookingId, participant_name: name.trim() })
@@ -502,7 +506,7 @@
         async function deleteBooking(id) {
             if (!confirm("בטוח שברצונך למחוק הזמנה זו?")) return;
             try {
-                await fetch(`${SUPABASE_BASE_URL}/court_bookings?id=eq.${id}`, { method: 'DELETE', headers: apiHeaders });
+                await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?id=eq.${id}`, { method: 'DELETE', headers: apiHeaders });
                 fetchBookings();
             } catch (e) {}
         }
