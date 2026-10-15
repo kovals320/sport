@@ -12,26 +12,18 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2873/2873133.png">
 
-    <!-- Tailwind CSS & Lucide Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- חיבור מוקדם לשרתים כדי לחסוך זמן בטעינה הראשונה -->
+    <link rel="preconnect" href="https://pjujibzoscawmstarerz.supabase.co" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Rubik', sans-serif;
-            background-color: #f8fafc;
-        }
-        .court-bg-tennis {
-            background-color: #3b82f6;
-        }
-        .court-bg-futsal {
-            background-color: #22c55e;
-        }
-        .court-bg-both {
-            background: linear-gradient(135deg, #3b82f6 50%, #22c55e 50%);
-        }
-    </style>
+    <!-- CSS מוכן מראש (במקום Tailwind שנבנה בדפדפן בכל טעינה) -->
+    <style>*,::before,::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:;--tw-pan-y:;--tw-pinch-zoom:;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:;--tw-gradient-via-position:;--tw-gradient-to-position:;--tw-ordinal:;--tw-slashed-zero:;--tw-numeric-figure:;--tw-numeric-spacing:;--tw-numeric-fraction:;--tw-ring-inset:;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:;--tw-brightness:;--tw-contrast:;--tw-grayscale:;--tw-hue-rotate:;--tw-invert:;--tw-saturate:;--tw-sepia:;--tw-drop-shadow:;--tw-backdrop-blur:;--tw-backdrop-brightness:;--tw-backdrop-contrast:;--tw-backdrop-grayscale:;--tw-backdrop-hue-rotate:;--tw-backdrop-invert:;--tw-backdrop-opacity:;--tw-backdrop-saturate:;--tw-backdrop-sepia:;--tw-contain-size:;--tw-contain-layout:;--tw-contain-paint:;--tw-contain-style:}::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:;--tw-pan-y:;--tw-pinch-zoom:;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:;--tw-gradient-via-position:;--tw-gradient-to-position:;--tw-ordinal:;--tw-slashed-zero:;--tw-numeric-figure:;--tw-numeric-spacing:;--tw-numeric-fraction:;--tw-ring-inset:;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:;--tw-brightness:;--tw-contrast:;--tw-grayscale:;--tw-hue-rotate:;--tw-invert:;--tw-saturate:;--tw-sepia:;--tw-drop-shadow:;--tw-backdrop-blur:;--tw-backdrop-brightness:;--tw-backdrop-contrast:;--tw-backdrop-grayscale:;--tw-backdrop-hue-rotate:;--tw-backdrop-invert:;--tw-backdrop-opacity:;--tw-backdrop-saturate:;--tw-backdrop-sepia:;--tw-contain-size:;--tw-contain-layout:;--tw-contain-paint:;--tw-contain-style:}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.left-5{left:1.25rem}.top-5{top:1.25rem}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-11{height:2.75rem}.h-3{height:0.75rem}.h-4{height:1rem}.h-5{height:1.25rem}.w-3{width:0.75rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-full{width:100%}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-7{grid-template-columns:repeat(7,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-1>:not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2>:not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3>:not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4>:not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5>:not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6>:not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity,1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity,1))}.border-emerald-500{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity,1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity,1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity,1))}.border-slate-200\/60{border-color:rgb(226 232 240 / 0.6)}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity,1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity,1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity,1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity,1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity,1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity,1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity,1))}.bg-slate-300{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity,1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity,1))}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity,1))}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-12{padding-bottom:3rem}.pb-3{padding-bottom:0.75rem}.pr-2{padding-right:0.5rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity,1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity,1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity,1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity,1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity,1))}.opacity-80{opacity:0.8}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-amber-500\/20{--tw-shadow-color:rgb(245 158 11 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.ring-4{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-blue-600\/30{--tw-ring-color:rgb(37 99 235 / 0.3)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}.transition-colors{transition-property:color,background-color,border-color,fill,stroke,-webkit-text-decoration-color;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,-webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}.duration-150{transition-duration:150ms}.hover\:bg-amber-600:hover{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity,1))}.hover\:bg-red-100:hover{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity,1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity,1))}.hover\:bg-slate-200\/60:hover{background-color:rgb(226 232 240 / 0.6)}.hover\:text-slate-600:hover{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-amber-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(245 158 11 / var(--tw-ring-opacity,1))}.focus\:ring-blue-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(59 130 246 / var(--tw-ring-opacity,1))}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+
+body{font-family:'Rubik',sans-serif;background-color:#f8fafc}
+.court-bg-both{background:linear-gradient(135deg,#3b82f6 50%,#22c55e 50%)}
+</style>
 </head>
 <body class="text-slate-800 pb-12">
 
@@ -43,7 +35,7 @@
                 <span>🏟️</span> מגרשי ספורט ניר אליהו
             </h1>
             <p class="text-xs text-slate-500">בחרו יום ולחצו "צור הזמנה" להזמנת מגרש</p>
-            
+
             <!-- מקרא -->
             <div class="flex items-center justify-center gap-4 text-xs pt-1">
                 <span class="flex items-center gap-1.5">
@@ -59,15 +51,15 @@
 
         <!-- לוח שנה -->
         <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-200/80 space-y-4">
-            
+
             <!-- מעבר חודשים -->
             <div class="flex items-center justify-between px-2">
                 <button onclick="changeMonth(-1)" class="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-600">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
                 <h2 id="calendar-month-title" class="text-lg font-bold text-slate-800">-- 2026</h2>
                 <button onclick="changeMonth(1)" class="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-600">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
             </div>
 
@@ -77,9 +69,7 @@
             </div>
 
             <!-- גריד הימים -->
-            <div id="calendar-days-grid" class="grid grid-cols-7 gap-2">
-                <!-- מיוצר דינמית -->
-            </div>
+            <div id="calendar-days-grid" class="grid grid-cols-7 gap-2"></div>
         </div>
 
         <!-- אזור הזמנות ליום שנבחר -->
@@ -93,7 +83,7 @@
             </div>
 
             <button onclick="openBookingModal()" class="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] text-white py-3.5 rounded-2xl font-bold text-base shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
-                <i data-lucide="plus" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                 צור הזמנה
             </button>
         </div>
@@ -103,26 +93,26 @@
     <!-- Modal הזמנה (יצירה / עריכה) -->
     <div id="booking-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5 relative animate-in fade-in zoom-in-95 duration-150">
-            
+
             <button onclick="closeBookingModal()" class="absolute top-5 left-5 text-slate-400 hover:text-slate-600">
-                <i data-lucide="x" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
 
             <h3 id="modal-date-title" class="text-lg font-bold text-slate-900 pr-2">הזמנת מגרש</h3>
 
             <form onsubmit="submitBooking(event)" class="space-y-4">
-                
+
                 <input type="hidden" id="editing-booking-id" value="">
 
                 <!-- בחירת סוג מגרש -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-2">סוג מגרש</label>
                     <div class="grid grid-cols-2 gap-3">
-                        <button type="button" id="btn-court-tennis" onclick="selectCourt('tennis')" 
+                        <button type="button" id="btn-court-tennis" onclick="selectCourt('tennis')"
                             class="py-3 px-4 rounded-2xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all border-blue-500 bg-blue-50 text-blue-700">
                             <span>🎾</span> טניס
                         </button>
-                        <button type="button" id="btn-court-futsal" onclick="selectCourt('futsal')" 
+                        <button type="button" id="btn-court-futsal" onclick="selectCourt('futsal')"
                             class="py-3 px-4 rounded-2xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all border-slate-200 bg-slate-50 text-slate-600">
                             <span>⚽</span> קטרגל
                         </button>
@@ -133,9 +123,7 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">שעת התחלה</label>
-                        <select id="booking-start-time" class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm font-medium bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <!-- שעות מ-06:00 עד 22:00 -->
-                        </select>
+                        <select id="booking-start-time" class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm font-medium bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500"></select>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">משך זמן</label>
@@ -159,7 +147,7 @@
                 <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3.5 space-y-3">
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-medium text-slate-700 flex items-center gap-2">
-                            <i data-lucide="users" class="w-4 h-4 text-slate-500"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-slate-500"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             כולל הרשמת משתתפים
                         </span>
                         <input type="checkbox" id="booking-enable-reg" onchange="toggleMaxParticipantsInput()" class="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500 cursor-pointer">
@@ -168,7 +156,7 @@
                     <!-- שדה מספר מקומות להרשמה -->
                     <div id="max-participants-container" class="hidden pt-2 border-t border-slate-200/60 space-y-1">
                         <label class="block text-xs font-semibold text-slate-600">מספר מקומות להרשמה</label>
-                        <input type="number" id="booking-max-participants" min="1" max="30" value="10" 
+                        <input type="number" id="booking-max-participants" min="1" max="30" value="10"
                             class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm bg-white text-center font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500">
                     </div>
                 </div>
@@ -196,6 +184,10 @@
         const TABLE_BOOKINGS = 'sport_court_bookings';
         const TABLE_PARTICIPANTS = 'sport_booking_participants';
 
+        // רק העמודות שהאפליקציה באמת משתמשת בהן
+        const BOOKING_COLS = 'id,date,court_type,start_time,duration_minutes,booker_name,enable_registration,max_participants';
+        const PARTICIPANT_COLS = 'booking_id,participant_name';
+
         const apiHeaders = {
             'apikey': SUPABASE_KEY,
             'Authorization': `Bearer ${SUPABASE_KEY}`,
@@ -206,57 +198,97 @@
         const monthNames = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
         const dayNames = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
 
-        let currentDate = new Date();
-        let selectedDateStr = new Date().toISOString().split('T')[0];
+        // אייקונים מוטמעים (במקום לטעון את כל ספריית Lucide)
+        const ICONS = {
+            'pencil': '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+            'trash-2': '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/>'
+        };
+        const icon = (name, cls) => `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${cls}">${ICONS[name]}</svg>`;
+
+        const pad = n => String(n).padStart(2, '0');
+        const toDateKey = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+        const monthKeyOf = dateStr => dateStr.slice(0, 7);
+
+        const today = new Date();
+        let currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        let selectedDateStr = toDateKey(today); // תאריך מקומי (ישראל), לא UTC
         let selectedCourtType = 'tennis';
 
-        let allBookings = [];
+        // הזמנות לפי חודש: 'YYYY-MM' -> [...]
+        const bookingsByMonth = new Map();
         let allParticipants = [];
+
+        const viewedMonthKey = () => `${currentDate.getFullYear()}-${pad(currentDate.getMonth() + 1)}`;
+        const bookingsForMonth = key => bookingsByMonth.get(key) || [];
 
         document.addEventListener('DOMContentLoaded', () => {
             populateTimeOptions();
-            lucide.createIcons();
-            fetchBookings();
+            renderCalendar();
+            refresh().then(prefetchNeighbors);
         });
 
         function populateTimeOptions() {
-            const select = document.getElementById('booking-start-time');
-            select.innerHTML = '';
+            let html = '';
             for (let h = 6; h <= 22; h++) {
                 for (let m = 0; m < 60; m += 30) {
                     if (h === 22 && m > 0) break;
-                    const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-                    select.innerHTML += `<option value="${timeStr}">${timeStr}</option>`;
+                    const timeStr = `${pad(h)}:${pad(m)}`;
+                    html += `<option value="${timeStr}">${timeStr}</option>`;
                 }
             }
+            document.getElementById('booking-start-time').innerHTML = html;
         }
 
         function toggleMaxParticipantsInput() {
             const enabled = document.getElementById('booking-enable-reg').checked;
-            const container = document.getElementById('max-participants-container');
-            if (enabled) {
-                container.classList.remove('hidden');
-            } else {
-                container.classList.add('hidden');
-            }
+            document.getElementById('max-participants-container').classList.toggle('hidden', !enabled);
         }
 
-        async function fetchBookings() {
-            try {
-                const resB = await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?select=*`, { headers: apiHeaders });
-                if (resB.ok) allBookings = await resB.json();
+        // טוען הזמנות של חודש אחד בלבד
+        async function fetchMonth(key) {
+            const [y, m] = key.split('-').map(Number);
+            const next = m === 12 ? `${y + 1}-01` : `${y}-${pad(m + 1)}`;
+            const url = `${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?select=${BOOKING_COLS}&date=gte.${key}-01&date=lt.${next}-01`;
+            const res = await fetch(url, { headers: apiHeaders });
+            if (res.ok) bookingsByMonth.set(key, await res.json());
+        }
 
-                const resP = await fetch(`${SUPABASE_BASE_URL}/${TABLE_PARTICIPANTS}?select=*`, { headers: apiHeaders });
-                if (resP.ok) allParticipants = await resP.json();
+        async function fetchParticipants() {
+            const res = await fetch(`${SUPABASE_BASE_URL}/${TABLE_PARTICIPANTS}?select=${PARTICIPANT_COLS}`, { headers: apiHeaders });
+            if (res.ok) allParticipants = await res.json();
+        }
+
+        // מרענן במקביל את החודש המוצג, את החודש של היום הנבחר (אם שונה) ואת המשתתפים
+        async function refresh() {
+            const key = viewedMonthKey();
+            const months = new Set([key, monthKeyOf(selectedDateStr)]);
+            try {
+                await Promise.all([...[...months].map(fetchMonth), fetchParticipants()]);
             } catch (e) {}
 
-            renderCalendar();
+            if (key === viewedMonthKey()) renderCalendar();
             renderSelectedDayBookings();
         }
 
+        // טעינה מוקדמת של החודש הקודם והבא, כדי שהמעבר ביניהם יהיה מיידי
+        function prefetchNeighbors() {
+            const y = currentDate.getFullYear(), m = currentDate.getMonth();
+            [new Date(y, m - 1, 1), new Date(y, m + 1, 1)].forEach(d => {
+                const key = `${d.getFullYear()}-${pad(d.getMonth() + 1)}`;
+                if (!bookingsByMonth.has(key)) fetchMonth(key).catch(() => {});
+            });
+        }
+
         function changeMonth(delta) {
-            currentDate.setMonth(currentDate.getMonth() + delta);
-            renderCalendar();
+            currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + delta, 1);
+            const key = viewedMonthKey();
+            renderCalendar(); // מציג מיד מהמטמון (אם קיים)
+
+            // ומרענן ברקע כדי לקבל שינויים של משתמשים אחרים
+            fetchMonth(key).then(() => {
+                if (key === viewedMonthKey()) renderCalendar();
+                prefetchNeighbors();
+            }).catch(() => {});
         }
 
         function renderCalendar() {
@@ -267,40 +299,40 @@
 
             const firstDayOfMonth = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const monthBookings = bookingsForMonth(`${year}-${pad(month + 1)}`);
 
-            const grid = document.getElementById('calendar-days-grid');
-            grid.innerHTML = '';
-
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                grid.innerHTML += `<div></div>`;
+            // סיכום לכל יום במעבר אחד על ההזמנות
+            const byDay = {};
+            for (const b of monthBookings) {
+                const d = byDay[b.date] || (byDay[b.date] = { count: 0, tennis: false, futsal: false });
+                d.count++;
+                if (b.court_type === 'tennis') d.tennis = true;
+                else if (b.court_type === 'futsal') d.futsal = true;
             }
 
-            for (let day = 1; day <= daysInMonth; day++) {
-                const monthStr = String(month + 1).padStart(2, '0');
-                const dayStr = String(day).padStart(2, '0');
-                const dateKey = `${year}-${monthStr}-${dayStr}`;
+            let html = '<div></div>'.repeat(firstDayOfMonth);
 
-                const dayBookings = allBookings.filter(b => b.date === dateKey);
-                const hasTennis = dayBookings.some(b => b.court_type === 'tennis');
-                const hasFutsal = dayBookings.some(b => b.court_type === 'futsal');
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateKey = `${year}-${pad(month + 1)}-${pad(day)}`;
+                const info = byDay[dateKey];
 
                 let bgClass = 'bg-slate-100 text-slate-700';
-                if (hasTennis && hasFutsal) bgClass = 'court-bg-both text-white';
-                else if (hasTennis) bgClass = 'bg-blue-500 text-white';
-                else if (hasFutsal) bgClass = 'bg-emerald-500 text-white';
+                if (info && info.tennis && info.futsal) bgClass = 'court-bg-both text-white';
+                else if (info && info.tennis) bgClass = 'bg-blue-500 text-white';
+                else if (info && info.futsal) bgClass = 'bg-emerald-500 text-white';
 
                 const isSelected = dateKey === selectedDateStr ? 'ring-4 ring-blue-600/30 font-bold scale-105' : '';
 
-                grid.innerHTML += `
-                    <button onclick="selectDate('${dateKey}')" 
+                html += `
+                    <button onclick="selectDate('${dateKey}')"
                         class="h-11 rounded-2xl text-sm font-semibold flex flex-col items-center justify-center transition-all ${bgClass} ${isSelected}">
                         <span>${day}</span>
-                        ${dayBookings.length > 0 ? `<span class="text-[9px] opacity-80 font-normal">≡</span>` : ''}
+                        ${info ? `<span class="text-[9px] opacity-80 font-normal">≡</span>` : ''}
                     </button>
                 `;
             }
 
-            lucide.createIcons();
+            document.getElementById('calendar-days-grid').innerHTML = html;
         }
 
         function selectDate(dateKey) {
@@ -311,12 +343,12 @@
 
         function renderSelectedDayBookings() {
             const d = new Date(selectedDateStr + 'T00:00:00');
-            const dayTitle = `היום יום ${dayNames[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}`;
-            document.getElementById('selected-day-title').textContent = dayTitle;
+            document.getElementById('selected-day-title').textContent = `היום יום ${dayNames[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}`;
 
             const listEl = document.getElementById('bookings-list');
-            const dayBookings = allBookings.filter(b => b.date === selectedDateStr)
-                                           .sort((a,b) => a.start_time.localeCompare(b.start_time));
+            const dayBookings = bookingsForMonth(monthKeyOf(selectedDateStr))
+                .filter(b => b.date === selectedDateStr)
+                .sort((a, b) => a.start_time.localeCompare(b.start_time));
 
             if (dayBookings.length === 0) {
                 listEl.innerHTML = `<div class="text-center py-8 text-slate-400 text-sm">אין הזמנות ליום זה</div>`;
@@ -325,10 +357,10 @@
 
             listEl.innerHTML = dayBookings.map(b => {
                 const parts = allParticipants.filter(p => p.booking_id === b.id);
-                
+
                 const [h, m] = b.start_time.split(':').map(Number);
                 const endD = new Date(2000, 0, 1, h, m + b.duration_minutes);
-                const endTimeStr = `${String(endD.getHours()).padStart(2,'0')}:${String(endD.getMinutes()).padStart(2,'0')}`;
+                const endTimeStr = `${pad(endD.getHours())}:${pad(endD.getMinutes())}`;
 
                 const badgeBg = b.court_type === 'tennis' ? 'bg-blue-600' : 'bg-emerald-600';
                 const maxParts = b.max_participants || 10;
@@ -347,7 +379,7 @@
                             <div>
                                 ${b.enable_registration ? `
                                     <div class="flex items-center gap-2">
-                                        <button onclick="addParticipantPrompt(${b.id}, ${maxParts},${parts.length})" 
+                                        <button onclick="addParticipantPrompt(${b.id}, ${maxParts},${parts.length})"
                                             class="${isFull ? 'bg-slate-300 cursor-not-allowed' : 'bg-amber-500 hover:bg-amber-600'} text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-sm transition-all"
                                             ${isFull ? 'disabled' : ''}>
                                             ${isFull ? 'מלא' : 'הרשמה'}
@@ -361,10 +393,10 @@
 
                             <div class="flex items-center gap-1.5 text-slate-400">
                                 <button onclick="editBooking(${b.id})" class="p-1.5 hover:bg-slate-200/60 rounded-xl transition-colors text-slate-500" title="ערוך הזמנה">
-                                    <i data-lucide="pencil" class="w-4 h-4"></i>
+                                    ${icon('pencil', 'w-4 h-4')}
                                 </button>
                                 <button onclick="deleteBooking(${b.id})" class="p-1.5 hover:bg-red-100 rounded-xl transition-colors text-red-500" title="מחק הזמנה">
-                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                    ${icon('trash-2', 'w-4 h-4')}
                                 </button>
                             </div>
                         </div>
@@ -381,8 +413,6 @@
                     </div>
                 `;
             }).join('');
-
-            lucide.createIcons();
         }
 
         function selectCourt(type) {
@@ -418,7 +448,7 @@
         }
 
         function editBooking(id) {
-            const b = allBookings.find(item => item.id === id);
+            const b = bookingsForMonth(monthKeyOf(selectedDateStr)).find(item => item.id === id);
             if (!b) return;
 
             document.getElementById('editing-booking-id').value = b.id;
@@ -466,21 +496,10 @@
             closeBookingModal();
 
             try {
-                if (bookingId) {
-                    const res = await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?id=eq.${bookingId}`, {
-                        method: 'PATCH',
-                        headers: apiHeaders,
-                        body: JSON.stringify(bookingData)
-                    });
-                    if (res.ok) fetchBookings();
-                } else {
-                    const res = await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}`, {
-                        method: 'POST',
-                        headers: apiHeaders,
-                        body: JSON.stringify(bookingData)
-                    });
-                    if (res.ok) fetchBookings();
-                }
+                const res = bookingId
+                    ? await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?id=eq.${bookingId}`, { method: 'PATCH', headers: apiHeaders, body: JSON.stringify(bookingData) })
+                    : await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}`, { method: 'POST', headers: apiHeaders, body: JSON.stringify(bookingData) });
+                if (res.ok) refresh();
             } catch (err) {}
         }
 
@@ -499,7 +518,7 @@
                     headers: apiHeaders,
                     body: JSON.stringify({ booking_id: bookingId, participant_name: name.trim() })
                 });
-                if (res.ok) fetchBookings();
+                if (res.ok) refresh();
             } catch (e) {}
         }
 
@@ -507,7 +526,7 @@
             if (!confirm("בטוח שברצונך למחוק הזמנה זו?")) return;
             try {
                 await fetch(`${SUPABASE_BASE_URL}/${TABLE_BOOKINGS}?id=eq.${id}`, { method: 'DELETE', headers: apiHeaders });
-                fetchBookings();
+                refresh();
             } catch (e) {}
         }
     </script>
